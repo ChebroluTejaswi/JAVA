@@ -1,0 +1,71 @@
+Basic structure of java Program:
+
+    public class fristprogram{
+        public static void main(String args[]){
+            System.out.println("hello world!");
+        }
+    }
+    Java file should have only 1 main function.
+    As static methods cannot be overridden. Therefore we declare main method to be static.
+    String args[] is a parameter list which can be used to pass arguments for the main method.
+    Static method can call only other static methods.
+
+
+----------------------------------------------------------------------------
+
+Keyword (Reserved word): Keywords are particular words that act as a key to a code. These are predefined words by Java so they cannot be used for naming variables,classes,methods or other entities.
+Expression: An expression is a construct made up of variables, operators, and method invocations, which are constructed according to the syntax of the language, that evaluates to a single value. 
+Statement: A statement forms a complete unit of execution. Few expressions can be made into statement by terminating the espression with ;.
+
+Example:
+        int score=0; // Declaration Statement. Expression: score=0
+        // if, int, return : Keywords
+        if(score<10){ // Not an Expression (but score<10: Expression)
+            System.out.println("You Lost!"); // Method invocation Statement.  
+        }
+        return 0; // Statement
+----------------------------------------------------------------------------
+
+If-Else Statements: An if statement can be followed by an optional else statement, which executes when the Boolean expression is false.
+
+Example:
+        if(score<10){ // Boolean expression: score<10
+            System.out.println("You Lost!");  // This statement gets executed when score<10 is true.
+        }
+        else if(score=10){ 
+            System.out.println("Tie!"); // This statement gets executed when score<10 is false and score=10 is true.
+        }
+        else{ 
+            System.out.println("You Won!"); // This statement gets executed when score<10 is flase and score=10 is false.
+        }
+
+----------------------------------------------------------------------------
+
+Methods:A method is a block of code or collection of statements or a set of code grouped together to perform a certain task or operation. 
+
+Example:
+        public int sum(int a, int b) // Method Signature: Method name+ Parameter List 
+        {
+            // Method Body: (contains the actions to be performed)
+            return a+b;
+        }
+        // public: Access Specifier (specifies visibility of the method sum)
+        // int: Return Type (data type that method returns)
+        // sum: Method Name (unique name used to invoke a method)
+        // int a, int b: Parameter List (datatype variable name)
+
+----------------------------------------------------------------------------
+
+Method Overloading: If a class has multiple methods having same name but different in parameters, it is known as Method Overloading.
+
+Example:
+        class Adder{  
+            static int add(int a,int b){
+                return a+b;
+            }  
+            static int add(int a,int b,int c){
+                return a+b+c;
+            }      
+        }  
+
+----------------------------------------------------------------------------
