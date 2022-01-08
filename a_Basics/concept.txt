@@ -13,9 +13,11 @@ Basic structure of java Program:
 
 ----------------------------------------------------------------------------
 
-Keyword (Reserved word): Keywords are particular words that act as a key to a code. These are predefined words by Java so they cannot be used for naming variables,classes,methods or other entities.
-Expression: An expression is a construct made up of variables, operators, and method invocations, which are constructed according to the syntax of the language, that evaluates to a single value. 
-Statement: A statement forms a complete unit of execution. Few expressions can be made into statement by terminating the espression with ;.
+Keyword (Reserved word): Keywords are particular words that act as a key to a code. 
+                         These are predefined words by Java so they cannot be used for naming variables,classes,methods or other entities.
+Expression: An expression is a construct made up of variables, operators, and method invocations.
+            Which are constructed according to the syntax of the language, that evaluates to a single value. 
+Statement: A statement forms a complete unit of execution. Few expressions can be made into statement by terminating the espression with (';').
 
 Example:
         int score=0; // Declaration Statement. Expression: score=0
@@ -49,10 +51,10 @@ Example:
             // Method Body: (contains the actions to be performed)
             return a+b;
         }
-        // public: Access Specifier (specifies visibility of the method sum)
-        // int: Return Type (data type that method returns)
-        // sum: Method Name (unique name used to invoke a method)
-        // int a, int b: Parameter List (datatype variable name)
+        public: Access Specifier (specifies visibility of the method sum)
+        int: Return Type (data type that method returns)
+        sum: Method Name (unique name used to invoke a method)
+        int a, int b: Parameter List (datatype variable name)
 
 ----------------------------------------------------------------------------
 
