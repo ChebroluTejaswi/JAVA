@@ -1,0 +1,185 @@
+OBJECT ORIENTED vs OBJECT BASED 
+
+    Object-based programming language: Follows all the features of OOPs except Inheritance. JavaScript and VBScript are examples of object-based programming languages.
+
+----------------------------------------------------------------------------
+
+CLASS: Template or Blueprint for creating objects.
+OBJECT: Has State and Behaviour.
+
+Example:
+        - CLASS creation
+            public class car{ 
+                private String name; // state
+                public void setName(String name){ // behaviour
+                    this.name=name;// "this" will point name attribute   
+                }
+            }
+            // public and private are access modifiers.
+        - OBJECT creation
+            car r = new car();
+
+----------------------------------------------------------------------------
+
+CONSTRUCTORS: A constructor in Java is a special method that is used to initialize objects. 
+              The constructor is called when an object of a class is created. 
+              1) No-Args Constructors     2) Parameterizied Constructors
+
+            - Constructors must have the same name as the class within which it is defined.
+            - Constructors do not return any type.
+            - Constructors are called only once at the time of Object creation.
+            - A constructor in Java can not be abstract, final, static and Synchronized.
+            - Access modifiers can be used in constructor declaration to control its access (i.e which other class can call the constructor).
+
+    EXAMPLE:
+            public class car{
+                int wheels;
+                public void car(int wheels){ this.wheels=wheels;}
+            }
+
+----------------------------------------------------------------------------
+
+REFERENCE VS OBJECT VS INSTANCE VS CLASS
+
+    Class: Blueprint for a house.
+    Object/Instance: Each house that we build. (instantiating house blueprint using new operator)
+    Reference: Each house we build has a address, that is known as reference.
+               There can be many References pointing to a single object.
+               We can pass references as parameters to constructors and methods.
+
+    Example: 
+            Car c=new Car("honda");
+            Car d=c; // d is a reference pointing to the same object c. d will also get intialized with name honda.
+
+----------------------------------------------------------------------------
+
+THIS vs SUPER
+
+    This: Used to call current class members(variables and methods).
+          Mostly used when we have a parameter with same name as an instance variable.
+          For calling a constructor from another overloaded constructor in same class (i.e this(.. ,.. ,..)).
+          This must be the first statement in a constructor.  
+          (Commonly used with constructors and setters) 
+        EXAMPLE: 
+            (Costructor chaining - last constructor has the responsibility to initialize the variables)
+            public rectangle(){  this(0,0); // calls second constructor }
+            public rectangle(w,h){  this(0,0,width,height); // calls third constructor }
+            public rectangle(x,y,w,h){  this.x=x; this.y=y; this.width=width; this.height=height; }
+
+    Super: Used to access/call the parent class members (variables and methods).
+           Super() must be the first statement in a constructor. 
+           (Commonly used with method overriding)
+        EXAMPLE:
+            class shape{
+                public shape(x,y){ this.x=x; this.y=y; }
+            }
+            class rectangle extends shape{ 
+                public rectangle(x,y,w,h){
+                    super(x,y);
+                    this.w=w; this.h=h;
+                }
+            }
+    We can use this/super anywhere in a class except static areas.
+    A constructor can have a call to super() or this() but never both.
+
+----------------------------------------------------------------------------
+
+METHOD OVERLOADING VS METHOD OVERRIDING
+
+    Method Overloading: (Compile-time polymorphism) 
+                        Providing two or more separate methods in a class with same name but diff parameters.
+                        Return type, Access modifiers may or may not be same and can Throw different checked/ unchecked exceptions.
+
+    Method Overriding: (Run-time / Dynamic polymorphism)
+                        Defines a method in child class that already exists in parent class with same name and arguments.
+                        It's recommended to put @Override immediately above method defination.
+                        Return type must be same(Covariant return type also works - same class object as return type).
+                        It can't have lower access modifer(when compared to it's parent access modifier)
+                        Only inherited methods are be overridden(Constructors and private methods cannot be overridden)
+
+----------------------------------------------------------------------------
+
+STATIC VS INSTANCE METHODS
+
+    Static Method: Declared using static modifier.
+                   Static methods are the methods in Java that can be called without creating an object of class. 
+                   They are referenced by the class name itself or reference to the Object of that class.  
+                   Can't access instance methods and instance variables direclty.
+                   They are usually used for operations that don't require data from an instance of the class.
+                   Static methods can't use this keyword.
+                   Static methods can not be overridden, since they are resolved using static binding by the compiler at compile time.
+            MEMORY:
+                    They are stored in the Permanent Generation space of heap as they are associated with the class in which they reside not to the objects of that class.
+                    But their local variables and the passed argument(s) to them are stored in the stack.
+            EXAMPLE: 
+                    class dog{
+                        public static String name="";
+                        public static void bark(String name){ ... };
+                    }
+                    public class main{
+                        public static void main(String args[]){
+                            dog.bark("tommy");
+                            System.out.println(dog.name);
+                        }
+                    }
+
+    Instance Method: Belong to an instance of a class.
+                     To use an instance method we have to instantiate the class first usually by using new keyword.
+                     Instance method(s) belong to the Object of the class, not to the class i.e. they can be called after creating the Object of the class.
+                     They can be overridden since they are resolved using dynamic binding at run time.
+            MEMORY: 
+                    These methods themselves are stored in Permanent Generation space of heap but, 
+                    the parameters (arguments passed to them) and their local variables and the value to be returned are allocated in stack.
+            EXAMPLE:
+                    class dog{
+                        public void bark(){ ... };
+                    }
+                    public class main{
+                        public static void main(String args[]){
+                            dog r = new dog();   // Creating Instance 
+                            r.bark();  // Calling instance method
+                        }
+                    }
+
+----------------------------------------------------------------------------
+
+STATIC VS INSTANCE VARIABLES
+
+    Static Variables: (Static member variables) Every instance of class shares the same static variable.
+                      If changes are made to that variable, all other instances will see the effect of the change.
+
+            EXAMPLE: 
+                    class dog{
+                        private static String name;
+                        public dog(String name){ this.name = name; };
+                        public void printname(){ print(name); };
+                    }
+                    public class main{
+                        public static void main(String args[]){
+                            dog r = new dog("tommy");   // Creating Instance 
+                            dog m = new dog("jimmy");   // Creating Instance 
+                            r.printname(); // output: jimmy
+                            m.printname(); // output: jimmy
+                        }
+                    }
+
+    Instance Method: (Fields or Member variables) Instance variables belong to an instance of a class.
+                     Every instance has it's own copy of an instance variable. Every instance can have a different value(state).
+                     Instance variables represent the state of an instance.
+
+            EXAMPLE:
+                    class dog{
+                        private String name;
+                        public dog(String name){ this.name = name; };
+                        public void printname(){ print(name); };
+                    }
+                    public class main{
+                        public static void main(String args[]){
+                            dog r = new dog("tommy");   // Creating Instance 
+                            dog m = new dog("jimmy");   // Creating Instance 
+                            r.printname(); // output: tommy
+                            m.printname(); // output: jimmy
+                        }
+                    }
+                    
+----------------------------------------------------------------------------

@@ -1,0 +1,138 @@
+INHERITENCE: IS-A relationship to create new classes that are built upon existing classes. When you inherit from an existing class, you can reuse methods and fields of the parent class. 
+             Moreover, you can add new methods and fields in your current class also. We use inheritence for method overriding and for code resusability.
+            
+        Class:  A class is a group of objects which have common properties. It is a template or blueprint from which objects are created.
+        Sub Class/Child Class:  Subclass is a class which inherits the other class. It is also called a derived class, extended class, or child class.
+        Super Class/Parent Class:   Superclass is the class from where a subclass inherits the features. It is also called a base class or a parent class.
+
+        EXAMPLE:
+                class Subclass-name extends Superclass-name{
+                    super(...); // calls parent class constructor
+                }
+                @override
+                public void fun(){ // fun is a method defined in parent class
+                    super.fun();
+                }
+                // The extends keyword indicates that you are making a new class that derives from an existing class.
+
+        TYPES:
+            - Single    A<-B
+            - Multilevel    A<-B<-C
+            - Hierarchical  A<-B and A<-C
+            - Multiple Inheritence  A<-C and B<-C (Not supported in java through class, we need to use interface concept to achieve multiple inheritence)
+
+----------------------------------------------------------------------------
+
+MODIFIERS:
+         Access Modifiers - Controls the access level.
+
+            Classes: PUBLIC (accessible by any other class) 
+                     default (accessible by classes in same package only)
+            Attributes, Methods and Constructors:
+                     PUBLIC (accessible for all classes)
+                     PRIVATE (accessible within the declared class)
+                     PROTECTED (accessible in same package and sub classes)
+                     default (accessible only in same package)
+
+         Non-Access Modifiers - Do not control access level, but provides other functionality.
+
+            Classes: FINAL (class cannot be inherited by other classes)
+                     ABSTRACT (class cannot be used to create objects - to access an abstract class, it must be inherited from another class)
+            Attributes and Methods:
+                     FINAL (attributes and methods cannot be modified/overridden)
+                     STATIC (attributes and methods belongs to the class, rather than a object)
+                     ABSTRACT (can only be used in abstract class, method does not have a body (methods are defined inside sub classes))
+                     TRANSIENT (attributes and methods are skipped when serializing the object containing them)
+                     SYNCHRONIZED (Methods can only be accessed by one thread at a time)
+                     VOLATILE (value of an attribute is not cached thread-locally, and is always read from "main memory")            
+
+----------------------------------------------------------------------------
+
+ENCAPSULATION: (Data-Hiding : As data in a class is hidden from other classes)
+               Binding (or wrapping) code and data together into a single unit are known as encapsulation.
+               Is used to make sure that "Sensitive" data is hidden from users.
+               Declare class variables/ attributes as private.(private attributes cannot be accessed by other classes)
+               Provide public get and set methods to access and update the value of a private variable.
+
+----------------------------------------------------------------------------
+
+POLYMORPHISM: If one task is performed in different ways, it is known as polymorphism.
+              In Java, we use method overloading and method overriding to achieve polymorphism.
+
+----------------------------------------------------------------------------
+
+ABSTRACTION: Hiding internal details and showing functionality is known as abstraction. 
+             In Java, we use abstract class and interface to achieve abstraction.
+             (The objects that help to perform abstraction are encapsulated)
+
+
+Abstraction vs Encapsulation:
+            Abstraction is method of hiding unwanted information. Encapsulation is a method to hide the data in a single entity or unit to protect info from outside.
+            Abstraction hides code complexicity. Encapsulation hides internal working from outside.
+            Abstraction is implemented using abstract and interfaces. Encapsulation is implemented using access modifiers.
+
+----------------------------------------------------------------------------
+
+COUPLING: Coupling refers to the knowledge or information or dependency of another class. 
+          If a class has the details information of another class, there is strong coupling.  
+          In Java, we use private, protected, and public modifiers to display the visibility level of a class, method, and field.
+          You can use interfaces for the weaker coupling because there is no concrete implementation.
+
+----------------------------------------------------------------------------
+
+COHESION: Cohesion refers to the level of a component which performs a single well-defined task.
+          A single well-defined task is done by a highly cohesive method. The weakly cohesive method will split the task into separate parts.
+          The java.io package is a highly cohesive package because it has I/O related classes and interface.
+          The java.util package is a weakly cohesive package because it has unrelated classes and interfaces.
+
+----------------------------------------------------------------------------
+
+ASSOCIATION: Association represents the relationship between the objects. Here, one object can be associated with one object or many objects.
+             One to One:    One country - One prime minister  
+             One to Many:   One prime minister - Many ministers
+             Many to One:   Many ministers - One prime minister
+             Many to Many:  Many ministers - Many departments
+
+----------------------------------------------------------------------------
+
+AGGREGATION: Aggregation is a way to achieve Association. Aggregation represents the relationship where one object contains other objects as a part of its state.
+             It represents the weak relationship between objects.
+             It is also termed as a has-a relationship in Java. 
+    EXAMPLE: class Animal{
+                String Id;
+            }
+            clas dog{
+                Animal ani;
+                String name;
+                public void print(){
+                    print(name);
+                    print(a.id);
+                    // without ani object, we can print name.
+                }
+            }
+
+----------------------------------------------------------------------------
+
+COMPOSITION: The composition is also a way to achieve Association.
+             The composition represents the relationship where one object contains other objects as a part of its state. 
+             There is a strong relationship between the containing object and the dependent object.
+             It is the state where containing objects do not have an independent existence. If you delete the parent object, all the child objects will be deleted automatically.
+    EXAMPLE:
+            class Animal{
+                String Id;
+            }
+            clas dog{
+                Animal a;
+                String name;
+                public void print(){
+                    print(name+" id:" +a.id);
+                    // without ani object, we cannot print name also.
+                }
+            }
+
+Composition vs Aggregation:
+             Composition is strong type of "has-a" relationship because containing objects is aowner. Objects are tightly coupled(parent object deleted -> child objects are also deleted).
+             Aggregation is weak type of "has-a" realtionship because objects are not involved in owning and are not tightly coupled (child objects exists even if parent object is deleted).
+             Ex for Aggregation: If we remove a wheel from car, the car can function adequately with another wheel.
+             Ex for Composition: If we delete a folder, files inside the folder will also get deleted.
+----------------------------------------------------------------------------
