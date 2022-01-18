@@ -29,6 +29,14 @@ class Car{
     public String getName(){
         return this.name;
     }
+    public boolean getEngine()
+    {
+        return this.engine;
+    }
+    public int getWheels()
+    {
+        return this.wheels;
+    }
 }
 
 class Mitsubishi extends Car{

@@ -106,6 +106,30 @@ class Bedroom{
         System.out.println("Bedroom -> Making bed | ");
         bed.make();
     }
+    public String getName()
+    {
+        return this.name;
+    }
+    public Ceiling getCeiling()
+    {
+        return this.ceiling;
+    }
+    public Wall getWall1()
+    {
+        return this.wall1;
+    }
+    public Wall getWall2()
+    {
+        return this.wall2;
+    }
+    public Wall getWall3()
+    {
+        return this.wall3;
+    }
+    public Wall getWall4()
+    {
+        return this.wall4;
+    }
 }
 
 

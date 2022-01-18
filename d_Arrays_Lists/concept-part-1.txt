@@ -1,0 +1,118 @@
+ARRAY:  An array is a collection of similar type of elements which has contiguous memory location.
+        
+    FEATURES- 
+            1. 0 Indexed.
+            2. All elements of array should have same data type.
+            3. Default values of numeric array elements are set to zero.
+
+    EXAMPLE-
+            int [] arr=new int[10]; //initialization-1 way
+            int [] arr= {1,2,3,4}; //initialization-2 way also called as anonymous array
+            arr[1] //to access second element in array
+            Scanner sc=new Scanner(System.in);
+
+    FUNCTIONS-
+            1. arr.length // returns number of elements in arr
+            2. int [] new = arr.copyOf(arr,0,2); // original array, starting index, ending index
+            3. Arrays.toString(arr) //converts the into a string containing all elements
+
+----------------------------------------------------------------------------
+
+REFERENCES
+
+    EXAMPLE- 
+            int a=3;int b=a; //a's value is copied to b variable
+            a=4; // b will hold value 3 and a will hold value 4
+
+            int[] arr={1,2,3}; int[] brr=arr; // brr and arr both will be pointing to the same array in memory.
+            brr[0]=10; // arr will hold values 10,2,3 and brr will hold values 10,2,3
+
+----------------------------------------------------------------------------
+           
+ARRAYLIST:Java ArrayList class uses a dynamic array for storing the elements. It is like an array, but there is no size limit. 
+
+    we cannot add/remove elements from built in array in java. 
+    So we use Arraylist in java, where we can add/remove elements.
+
+    EXAMPLE-
+            ArrayList<Integer> arr =new ArrayList<Integer>(); //ArrayList is a class. we are creating an arr object.
+
+    FUNCTIONS-
+            1. arr.add(item); // adds a element to ArrayList
+            2. arr.size(); // returns number of elements in ArrayList
+            3. arr.get(i); // returns element at ith positon in ArrayList
+            4. arr.set(i,2) // replaces element at ith positon with 2
+            5. arr.remove(i) // removes the element at ith position in ArrayList
+            6. arr.contains(3) // returns true if arraylist contains 3, otherwise false
+            7. arr.indexOf(3) // returns the index value of element "3", if not present then returns -1.
+
+----------------------------------------------------------------------------
+
+AUTOBOXING AND UNBOXING: The automatic conversion of primitive data types into its equivalent Wrapper type is known as boxing 
+                         and opposite operation is known as unboxing.
+
+        AUTOBOXING: Int to Integer class 
+                    Integer i=new Integer(5); // i will hold the value 5
+        EXAMPLE: 
+                  ArrayList<IntClass> intclass = new ArrayList<IntClass>();
+                  intclass.add(new IntClass(30));
+                           
+        UNBOXING: Integer class to Int 
+                  Integer.valueOf(i); // return the values of i(i.e 50)           
+        EXAMPLE: 
+                  ArrayList<Integer> intarray = new ArrayList<Integer>();
+                  intarray.add(Integer.valueOf(2));
+                  intarray.get(0).intValue();
+
+----------------------------------------------------------------------------
+
+ LINKED LIST: Java LinkedList class uses a doubly linked list to store the elements.
+              It inherits the AbstractList class and implements List and Deque interfaces.
+    
+    index:      0       1       2       3
+    address:    100     108     116     124
+    string add: 1034    1037    1046    1024
+
+    address:    1024    1034    1037    1046
+    string:     Tim     Jon     Ray     Eon
+
+    FEATURES- 
+            1. Java LinkedList class can contain duplicate elements.
+            2. Maintains insertion order
+            3. Non synchronized
+            4. Manipulation is fast (coz no shifting needs to occur)
+            5. Java linked list class can be used as a list, stack or queue.
+
+    EXAMPLE-
+            LinkedList<String> abc= new LinkedList<String>();
+            Iterator<String> i = abc.iterator();
+            while(i.hasNext()){ print(i.next())}
+
+    FUNCTIONS-
+            1. abc.add(); // adds a element to linked list
+            2. i.hasNext(); // tells is there another entry next?
+            3. i.hasPrevious(); // tells is there any previous entry?
+            4. i.next(); // moves to the next entry
+            5. i.previous(); // moves back by one entry
+            6. abc.add(index,value);
+            7. abc.remove(3); // removes the element at 4th index
+            8. abc.getFirst(); //returns the first element in linked list
+
+----------------------------------------------------------------------------
+    
+ArrayList AND LinkedList
+
+        Both are collections which can contain many objects of the same data type.
+        Both the classes implement List Interface.
+        Both can be used in same way, but are built very differently
+        
+        ARRAYLIST: The ArrayList class has a regular array inside it. When an element is added, it is placed into the array.
+                   If the array is not big enough, a new, larger array is created to replace the old one and the old one is removed.
+
+        LINKEDLIST: The LinkedList stores its items in "containers." The list has a link to the first container and each container has a link to the next container in the list.
+                    To add an element to the list, the element is placed into a new container and that container is linked to one of the other containers in the list.
+
+        Use an ArrayList for storing and accessing data, and LinkedList to manipulate data.
+        (reason: LinkedList provides several methods to do certain operations more efficiently)
+        
+----------------------------------------------------------------------------    

@@ -91,6 +91,14 @@ class HealthyBurger extends Hamburger{
     {
         return this.price+this.healthyExtra1Price+this.healthyExtra2Price+this.addition1Price+this.addition2Price+this.addition3Price+this.addition4Price;
     }
+    public String getHealthyExtra1Name()
+    {
+        return this.healthyExtra1Name;
+    }
+    public String getHealthyExtra2Name()
+    {
+        return this.healthyExtra2Name;
+    }
 }
 
 public class BillBurger {
