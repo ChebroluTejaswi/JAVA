@@ -1,0 +1,151 @@
+INTERFACES: An interface in Java is a blueprint of a class. It has static constants and abstract methods.
+            There can be only abstract methods in the Java interface, not method body. It is used to achieve abstraction and multiple inheritance in Java.
+            Java Interface also represents the IS-A relationship.
+            It cannot be instantiated just like the abstract class.  
+            We cannot instantiate a interrface.          
+    
+    EXAMPLE: interface abc{
+                // declare constant fields
+                public void func(); // declaration of abstract methods
+            }
+            class xyz implements abc{  // For multiple inheritence: class xyz implements abc,def 
+                @override
+                public void func(){
+                    System.out.println("Welcome!");
+                }
+            }
+            main{
+                xyz obj1 = new xyz(); // We can do this.
+                abc obj2 = new abc(); // Throws an error
+                abc obj3 = new xyz(); // We can do this 
+            }
+
+----------------------------------------------------------------------------
+
+CLASS extends CLASS
+CLASS implements INTERFACE
+INTERFACE extends INTERFACE
+
+----------------------------------------------------------------------------
+
+Why Multiple inheritence is not supported through class in JAVA, but it is possible by an Interface?
+
+In case of a class, there is an ambiguity, while in interface as methods are definied inside the classes there is no ambiguity.
+    
+    EXAMPLE: In case of classes
+             class abc{
+                public void greeting(){   print("Inside abc");   }
+             }
+             class def{
+                public void greeting(){   print("Inside def");   }
+             }
+             
+             class xyz extends abc,def{
+                 public void hi(){  print("Hello");    }
+             }
+
+             main(){
+                 xyz obj1=new xyz();
+                 obj1.greeting(); // From which class greeting method will be executed? This is the ambuguity here.
+             }
+            --------------------------------
+            In case of interface
+             interface abc{
+                public void greeting();
+             }
+             interface def{
+                public void greeting();  public void draw();
+             }
+             
+             class xyz extends abc,def{
+                 @override
+                 public void greeting(){   print("Welcome");    }
+                 public void draw() {   print("Drawing");    }
+             }
+
+             main(){
+                 abc obj1=new xyz();
+                 obj1.greeting(); // greeting method is defined in class xyz so it will execute this method.
+             }
+
+----------------------------------------------------------------------------
+
+NESTED CLASS: In Java, just like methods, variables of a class too can have another class as its member. Writing a class within another is allowed in Java. 
+              The class written within is called the nested class, and the class that holds the inner class is called the outer class.
+
+NON-STATIC NESTED CLASS: (Inner class)
+        We cannot have private class in java directly, but but if we have the class as a member of other class, then the inner class can be made private. 
+        And this is also used to access the private members of a class.
+
+        INNER CLASS, METHOD-LOCAL INNER CLASS, ANONYMOUS INNER CLASS 
+
+    EXAMPLE: 
+              class outer{
+                  public class inner{
+                      int a;
+                  }
+              }
+              main(){
+                  outer obj2 = new outer(); 
+                  outer.inner obj1 = obj2.new inner();
+                  obj1.a=3;
+              }
+
+STATIC NESTED CLASS:
+        A static inner class is a nested class which is a static member of the outer class. 
+        It can be accessed without instantiating the outer class, using other static members. 
+
+    EXAMPLE: 
+            class outer{
+                  static class inner{
+                      public void func(){   print("Hello");    }
+                  }
+              }
+              main(){
+                  outer.inner obj1 = new outer.inner();
+                  obj1.func();
+              }
+
+----------------------------------------------------------------------------
+
+ABSTRACT CLASSES: A class which is declared with the abstract keyword.
+    
+    Features:
+            It can have abstract and non-abstract methods (method with the body).
+            But, if a class has at least one abstract method, then the class must be declared abstract.
+            If a class is declared abstract, it cannot be instantiated.
+            To use an abstract class, you have to inherit it from another class, provide implementations of the abstract methods in it.
+            If you inherit an abstract class, you have to provide implementations to all the abstract methods in it.
+            It can have constructors and static methods also.
+            It can have final methods which will force the subclass not to change the body of the method.
+    
+    EXAMPLE:
+            abstract class abc{  
+                absract int interestRate();
+                abstract void greeting();
+                void wakeup(){  print("It's time to wake up!");    }// Non abstract METHOD  
+            }  
+            class xyz extends abc{  
+                void greeting(){    print("hello");     } 
+                int interestRate(){     return 7;   } 
+
+                public static void main(String args[]){  
+                    abc obj = new abc();  
+                    obj.greeting();  
+                    // also I can write abc obj = new xyz(); print(obj.interestRate);
+                }  
+            }  
+
+----------------------------------------------------------------------------
+
+INTERFACE vs ABSTRACT
+
+    1. Interface can have only abstract methods, whereas abstract classes can have both abstract and non abstract methods.
+    2. Abstract class can have final, non-final, static and non-static variables. The interface has only static and final variables.
+    3. Abstract class can provide the implementation of the interface. Interface can’t provide the implementation of an abstract class.
+    4. A Java interface can be implemented using the keyword “implements” and an abstract class can be extended using the keyword “extends”.
+    5. An interface can extend another Java interface only, an abstract class can extend another Java class and implement multiple Java interfaces.
+    6. Members of a Java interface are public by default. A Java abstract class can have class members like private, protected, etc.
+    7. A class may implement numerous interfaces, but can inherit only one abstract class.
+
+----------------------------------------------------------------------------
