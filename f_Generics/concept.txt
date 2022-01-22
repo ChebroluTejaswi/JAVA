@@ -1,0 +1,102 @@
+GENERICS: (parameterized types)
+          An entity such as class, interface, or method that operates on a parameterized type is called a generic entity.
+          The Object is the superclass of all other classes and Object reference can refer to any type object. These features lack type safety.
+          Generics adds type safety.
+
+----------------------------------------------------------------------------
+
+ADVANTAGES:
+    1. Type-safety: We can hold only a single type of objects in generics. It doesn?t allow to store other objects.
+       Without Generics, we can store any type of objects.
+        EXAMPLE:
+                ArrayList a = new ArrayList(); // allows to store all kinds of objects in A
+                ArrayList<Integer> a = new ArrayList<Integer>(); // allows to store only intrgers in A
+
+    2. Type casting is not required: There is no need to typecast the object.
+        EXAMPLE:
+                ArrayList a = new ArrayList();
+                a.add("apple");
+                String fruit=(String)a.get(0); // Type casting is required as values are stored as objects in non generic declaration
+
+                ArrayList<String> a = new ArrayList();
+                a.add("apple");
+                String fruit=a.get(0); // Type casting is not required.
+
+    3. It is checked at compile time so problem will not occur at runtime. 
+       The good programming strategy says it is far better to handle the problem at compile time than runtime.
+
+----------------------------------------------------------------------------
+
+TYPE PARAMETERS
+    T- Type
+    E- Element
+    K- Key
+    N- Number
+    V- Value
+
+----------------------------------------------------------------------------
+
+GENERIC CLASS: A class that can refer to any type is known as a generic class. 
+               
+    EXAMPLE: Here, we are using the T type parameter to create the generic class of specific type.
+             class abc<T>{
+                 T obj;
+                 void func(T obj) {  this.obj=obj;  }
+                 T get(){   return this.obj;    }
+             }
+             main(){
+                abc<Integer> obj1= new abc<Integer>();
+                obj1.func(2);
+                obj1.func("apple"); // will throw an error
+
+                abc<String> obj2= new abc<String>();
+                obj2.func(2); // will throw an error
+                obj2.func("apple"); 
+             }
+
+----------------------------------------------------------------------------
+
+GENERIC METHOD: Generic method can accept any type of arguments. Here, the scope of arguments is limited to the method where it is declared. 
+                It allows static as well as non-static methods.
+    EXAMPLE:
+            class abc{
+                // generic method
+                public static <E> void printArray(E[] elements)
+                {
+                    for(E element : elements)
+                        print(element);
+                    print("\n");
+                }
+            }
+            main()
+            {
+                Integer[] intArray ={1,2,3};
+                String[] stringArray={"apple","orange"};
+
+                printArray(intArray);
+                printArray(stringArray);
+            }
+
+----------------------------------------------------------------------------
+
+WILDCHARACTERS : We can use a wildcard as a type of a parameter, field, return type, or local variable. 
+                 However, it is not allowed to use a wildcard as a type argument for a generic method invocation, a generic class instance creation, or a supertype.
+
+    UPPER BOUND: To decrease the restrictions on a variable
+        class abc<? extends Number> : this class accepts all the sub data types of Number(i.e Integer, float, double, etc).
+        class abc<? extends  class_name>
+    
+    UNBOUNDED:The unbounded wildcard type represents the list of an unknown type.
+        class abc{
+            public static void display(List <?> list)
+            {......}
+        }
+    
+    LOWER BOUND: The purpose of lower bounded wildcards is to restrict the unknown type to be a specific type or a supertype of that type. 
+        class abc{
+            public static void display(List <? super Integer> list)
+            {......}
+        }
+        // super of integer : Number, object
+
+----------------------------------------------------------------------------
