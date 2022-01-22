@@ -1,0 +1,156 @@
+
+COLLECTIONS: Framework that provides an architecture to store and manipulate the group of objects. (Single unit of objects)
+             Java Collections can achieve all the operations that you perform on a data such as searching, sorting, insertion, manipulation, and deletion.
+             
+    HIERARCHY - Iterable <- Collection <- (List, Queue, Set) ----------Interfaces
+                List <- (ArrayList, LinkedList, Vector <-- Stack) -----Classes
+                Queue <- (priority Queue) -----------------Classes
+                Queue <- Deque (interface) <-- Arrayqueue (class)
+                Set <- (Hash set, Linked Hash set) -------------Classes
+                Set <- Sorted set (interface) <-- Tree set (class)
+
+----------------------------------------------------------------------------
+
+METHODS OF COLLECTION INTERFACE:
+
+    1. add(E element)
+    2. remove(E element)
+    3. size() // returns the total number of elements in Collection
+    4. clear() // removes all the elements from the collection 
+    5. contains // returns true if element is present in collection, otherwise false
+    6. iterator() // returns an iterator
+    7. isEmpty() // checks if collection is isEmpty
+    8. equals(E element) // matches two Collections
+    9. hashCode() // returns the hash code number of the collection
+
+----------------------------------------------------------------------------
+
+METHODS OF ITERATOR INTERFACE: Provides the facility of iterating the elements in a forward direction only.
+
+    1. hasNext() // returns true if iterator has more elements, otherwise false
+    2. next() // returns the element and moves the cursor pointer to the next element
+    3. remove() // removes the last element returned by the iterator.
+
+    The Iterable interface is the root interface for all the collection classes. 
+    The Collection interface extends the Iterable interface and therefore all the subclasses of Collection interface also implement the Iterable interface.
+
+    EXAMPLE:
+            Iterator<String> itr=stack.iterator();  // iterating in ascending order
+            while(itr.hasNext()){  System.out.println(itr.next());  }
+
+            Iterator i=ll.descendingIterator();   // traversing in reverse order
+            while(itr.hasNext()){  System.out.println(itr.next());  }
+
+    List Iterator can used to traverse the element in a backward and forward direction.
+            ListIterator<String> itr=al.listIterator();    
+
+----------------------------------------------------------------------------
+
+LIST INTERFACE: Child interface of collection interface.
+                Used to store ordered collection of objects. It can have duplicate values as well.
+
+        List <data-type> list1= new ArrayList(); // dynamic array, maintains insertion order and non-synchronized. 
+        List <data-type> list2 = new LinkedList();  // uses doubly linked list, maintains insertion order and non synchronized.
+        List <data-type> list3 = new Vector(); // similar to ArrayList but synchronized.
+        List <data-type> list4 = new Stack();  // uses Last in first out concept (subclass of vector)
+
+----------------------------------------------------------------------------
+
+QUEUE INTERFACE: Queue interface maintains the first-in-first-out order. 
+                 It can be defined as an ordered list that is used to hold the elements which are about to be processed.
+        
+        Queue<String> q1 = new PriorityQueue(); // holds elements which are to be processed by their priorities, doe not allow null values 
+        Queue<String> q2 = new ArrayDeque();  // double-ended queue where we can remove and add the elements from both the sides
+
+----------------------------------------------------------------------------
+
+SET INTERFACE: It represents the unordered set of elements which doesn't allow us to store the duplicate items.
+               We can store at most one null value in set. 
+
+        Set<data-type> s1 = new HashSet<data-type>(); // uses hash table for storage. Hashing is used to store the elements in hash set.
+        Set<data-type> s2 = new LinkedHashSet<data-type>();  // represents linked list implementation of set interface, maintains insertion order
+                                                                contains unique elements and permits null elements.
+        Set<data-type> s3 = new TreeSet<data-type>();  // elements are arranged in increasing order.
+
+----------------------------------------------------------------------------
+----------------------------------------------------------------------------
+
+ARRAYLIST: Dynamic array (no size limit)
+
+    FEATURES: 1. Contains Duplicate elements
+              2. Maintaines insertion order
+              3. Non synchronized
+              4. Allows random access 
+              5. Manipulation is time taking when compared to linked list
+
+    METHODS: 
+            ArrayList<String> obj=new ArrayList<String>();
+            obj.add("apple")
+            obj.get(0)
+            obj.set(0,"orange")
+            obj.remove("orange")
+            obj.addAll(obj2) // obj2 is another ArrayList
+            obj.removeall(obj2) // removes all elements of obj2 from obj arraylist
+            Collections.sort(obj)
+            obj.clear()
+
+----------------------------------------------------------------------------
+
+LINKEDLIST: Uses a doubly linked list to store the elements. It provides a linked-list data structure.
+
+    FEATURES: 1. Contains Duplicate elements
+              2. Maintaines insertion order
+              3. Non synchronized
+              4. LinkedList class can be used as a list, stack or queue. 
+              5. Manipulation is fast because no shifting needs to occur
+
+    METHODS: 
+            LinkedList<String> obj=new LinkedList<String>();  
+            obj.add("apple")
+            obj.addAll(1,obj2) // adding obj2 elements at first position
+            obj.addFirst("orange")
+            obj.addLast("pineapple")
+            obj.remove(0)
+            obj.removeFirst()
+            obj.removeLast()
+            obj.removeFirstOccurrence("mango")
+            obj.removeLastOccurrence("apple")
+            obj.clear()
+
+----------------------------------------------------------------------------
+
+VECTOR: Dynamic array which can grow or shrink its size.
+
+    FEATURES: 1. Synchronized
+              
+    METHODS: 
+            Vector<String> obj = new Vector<String>();  
+            obj.add("apple")
+            obj.addElement("orange")
+            obj.size()
+            obj.capacity()
+            obj.contains("apple")
+            obj.firstElement()
+            obj.lastElement()
+            obj.removeElementAt(5)
+            obj // checks and displays the vector (return data type: string)
+            obj.hashCode() // returns the hashCode
+
+----------------------------------------------------------------------------
+
+STACK: Linear data structure that is used to store the collection of objects. It is based on Last-In-First-Out (LIFO).
+              
+    METHODS: 
+            Stack<Integer> obj= new Stack<>(); 
+            obj.push(12)
+            obj.empty() // checking stack is empty or not
+            pushelmnt(obj,22)
+            popelmnt(obj)
+            obj.pop()
+            obj.peek()
+            obj.search(12) // returns the first occurance distance from the top of the stack
+            obj.size()
+            //invoking forEach() method for iteration over the stack  
+            obj.forEach(n ->  {  System.out.println(n);  }); 
+       
+----------------------------------------------------------------------------

@@ -1,0 +1,27 @@
+
+ARRAYLIST VS LINKED LIST
+
+        1. ArrayList internally uses a dynamic array, LinkedList internally uses a doubly linked list.
+        2. Manipulation with ArrayList is slow, whereas in Linked list it is fast.
+        3. An ArrayList class can act as a list, LinkedList class can act as a list and queue both because it implements List and Deque interfaces.
+        4. ArrayList is better for storing and accessing data, LinkedList is better for manipulating data.
+
+----------------------------------------------------------------------------
+
+HASHMAP VS Hashtable
+
+        1. HashMap is non synchronized. It is not-thread safe and can't be shared between many threads without proper synchronization code, whereas Hashtable is synchronization.
+        2. HashMap allows one null key and multiple null values, Hashtable doesn't allow any null key or value.
+        3. HashMap is fast, Hashtable is slow.
+        4. We can make the HashMap as synchronized by calling this code
+           Map m = Collections.synchronizedMap(hashMap);
+        5. HashMap is traversed by Iterator, Hashtable is traversed by Enumerator and Iterator.
+        
+----------------------------------------------------------------------------
+
+ARRAYLIST VS VECTOR
+
+        1. ArrayList is not synchronized, Vector is synchronized.
+        2. ArrayList is fast, Vector is slow.
+        
+----------------------------------------------------------------------------
