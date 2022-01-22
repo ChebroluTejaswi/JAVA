@@ -1,4 +1,11 @@
-Basic structure of java Program:
+JAVA program is made up of classes and methods.
+Methods: These are the containers of various statements.
+Statements are made up of Tokens. 
+Tokens: Variables, Operators, Special Characters, Literals, Separators, Keywords
+
+----------------------------------------------------------------------------
+
+BASIC STRUCTURE OF JAVA PROGRAM:
 
     public class fristprogram{
         public static void main(String args[]){
@@ -10,27 +17,68 @@ Basic structure of java Program:
     String args[] is a parameter list which can be used to pass arguments for the main method.
     Static method can call only other static methods.
 
-
 ----------------------------------------------------------------------------
 
-Keyword (Reserved word): Keywords are particular words that act as a key to a code. 
+KEYWORD (Reserved word): Keywords are particular words that act as a key to a code. 
                          These are predefined words by Java so they cannot be used for naming variables,classes,methods or other entities.
-Expression: An expression is a construct made up of variables, operators, and method invocations.
+EXPRESSION: An expression is a construct made up of variables, operators, and method invocations.
             Which are constructed according to the syntax of the language, that evaluates to a single value. 
-Statement: A statement forms a complete unit of execution. Few expressions can be made into statement by terminating the espression with (';').
+STATEMENT: A statement forms a complete unit of execution. Few expressions can be made into statement by terminating the espression with (';').
 
-Example:
+EXAMPLE:
         int score=0; // Declaration Statement. Expression: score=0
         // if, int, return : Keywords
         if(score<10){ // Not an Expression (but score<10: Expression)
             System.out.println("You Lost!"); // Method invocation Statement.  
         }
         return 0; // Statement
+
 ----------------------------------------------------------------------------
 
-If-Else Statements: An if statement can be followed by an optional else statement, which executes when the Boolean expression is false.
+JAVA STATEMENTS:
 
-Example:
+    1. Empty statements
+    2. Labelled statements
+    3. Expression statements (assignment, post- increment, etc)
+    4. Selection statements (if, if-else, etc)
+    5. Iteration statements (while, for, etc)
+    6. Jump statements (break, return, continue, etc)
+    7. Synchronization statement
+    8. Guarding statements (try, catch, etc)
+Control statements: selection, iteration and jump statements
+
+----------------------------------------------------------------------------
+PARSING VALUES FROM STRING
+
+EXAMPLE:
+        String s="100";
+        // String s="100a"; generates error when we try to parse into integer.
+        Integer.parseInt(s);
+        // Double.parseDouble(s); Long.parseLong(s); 
+
+----------------------------------------------------------------------------
+
+READING USER INPUT: We need to create an instance of scanner to get input from user.
+
+EXAMPLE:
+        Scanner sc = new Scanner(System.in);
+        String name=sc.nextLine();
+        int age=sc.nextInt();
+        boolean isAnInt=sc.hasNextInt();
+        // we can use hasNextInt function to check if user has entered an int value.
+        /*
+                if(isAnInt)
+                        int n=sc.nextInt();
+                else
+                        System.out.println("Invalid value");
+        */
+        sc.close();
+        
+----------------------------------------------------------------------------
+
+IF-ELSE STATEMENT: An if statement can be followed by an optional else statement, which executes when the Boolean expression is false.
+
+EXAMPLE:
         if(score<10){ // Boolean expression: score<10
             System.out.println("You Lost!");  // This statement gets executed when score<10 is true.
         }
@@ -43,9 +91,9 @@ Example:
 
 ----------------------------------------------------------------------------
 
-Methods:A method is a block of code or collection of statements or a set of code grouped together to perform a certain task or operation. 
+METHODS:A method is a block of code or collection of statements or a set of code grouped together to perform a certain task or operation. 
 
-Example:
+EXAMPLE:
         public int sum(int a, int b) // Method Signature: Method name+ Parameter List 
         {
             // Method Body: (contains the actions to be performed)
@@ -58,9 +106,9 @@ Example:
 
 ----------------------------------------------------------------------------
 
-Method Overloading: If a class has multiple methods having same name but different in parameters, it is known as Method Overloading.
+METHOD OVERLOADING: If a class has multiple methods having same name but different in parameters, it is known as Method Overloading.
 
-Example:
+EXAMPLE:
         class Adder{  
             static int add(int a,int b){
                 return a+b;
@@ -69,5 +117,17 @@ Example:
                 return a+b+c;
             }      
         }  
+
+----------------------------------------------------------------------------
+
+POINTER vs REFERENCE 
+    JAVA does not have pointers, it has only references
+
+    1. Pointer holds the memory address of a variable, whereas reference is an alias for another variable.
+    2. We need * to deference the pointer, whereas reference is a constant pointer which doesnot need a deferencing operator.
+    3. Pointer is independent variable which can be re assigned to refer to different objects,
+       whereas once references are created during initialization, the address values cannot be re assigned.
+    4. Pointer can be incremented/decremented to point to a new address but in JAVA arithmetic operations on references are not allowed.
+    5. Reference can refer to an object or be null only. (It cannot be manipulated)  
 
 ----------------------------------------------------------------------------

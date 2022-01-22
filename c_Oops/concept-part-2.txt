@@ -45,6 +45,7 @@ MODIFIERS:
                      TRANSIENT (attributes and methods are skipped when serializing the object containing them)
                      SYNCHRONIZED (Methods can only be accessed by one thread at a time)
                      VOLATILE (value of an attribute is not cached thread-locally, and is always read from "main memory")            
+        If overridding any method, overridden method declared in subclass must not be more restrictive.
 
 ----------------------------------------------------------------------------
 
@@ -58,6 +59,22 @@ ENCAPSULATION: (Data-Hiding : As data in a class is hidden from other classes)
 
 POLYMORPHISM: If one task is performed in different ways, it is known as polymorphism.
               In Java, we use method overloading and method overriding to achieve polymorphism.
+
+    EXAMPLE:
+            class A{
+                int x=10;
+                public void run()  {    print("Hello!");    }
+            }
+            class B extends A{
+                int x=20;
+                public void run()  {    print("hi!");   }
+            }
+            main()
+            {
+                A a= new B(); // upcasting
+                a.run(); // ouput: hi (run method in B will execute)
+                print(a.x); // output:10 (Methods are overidden not data members)
+            }
 
 ----------------------------------------------------------------------------
 

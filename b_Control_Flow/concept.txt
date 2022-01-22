@@ -1,8 +1,8 @@
-Switch Statement: The switch expression is evaluated once.
+SWITCH STATEMENT: The switch expression is evaluated once.
                  The value of the expression is compared with the values of each case.
                  If there is a match, the associated block of code is executed.
 
-Example:
+EXAMPLE:
         switch(expression) {
             case x:
                 // code block
@@ -13,10 +13,10 @@ Example:
 
 ----------------------------------------------------------------------------
 
-For Loop: The Java for loop is used to iterate a part of the program several times. 
+FOR LOOP: The Java for loop is used to iterate a part of the program several times. 
           If the number of iteration is fixed, it is recommended to use for loop.
 
-Example:
+EXAMPLE:
         for(initialization; condition; increment/decrement){    
             //statement or code to be executed    
         } 
@@ -25,19 +25,25 @@ Example:
                         Here, we can initialize the variable, or we can use an already initialized variable. 
                         It is an optional condition.
         Condition: It is the second condition which is executed each time to test the condition of the loop. 
-                It continues execution until the condition is false. It must return boolean value either true or false. 
-                It is an optional condition.
+                   It continues execution until the condition is false. It must return boolean value either true or false. 
+                   It is an optional condition.
         Increment/Decrement: It increments or decrements the variable value. It is an optional condition.
         Statement: The statement of the loop is executed each time until the second condition is false.
 
+        (or)
+        for( double element: myArray){ // usually used to print elements in array
+                System.out.println(element);
+        }
+        element is a temporary variable that picks up value in array one by one (start: 0   and   end: arr.length-1)
+
 ----------------------------------------------------------------------------
 
-While: The Java while loop is used to iterate a part of the program repeatedly until the specified Boolean condition is true. 
+WHILE: The Java while loop is used to iterate a part of the program repeatedly until the specified Boolean condition is true. 
        As soon as the Boolean condition becomes false, the loop automatically stops.
        The while loop is considered as a repeating if statement. 
        If the number of iteration is not fixed, it is recommended to use the while loop.
 
-Example:
+EXAMPLE:
         while (condition){    
             //code to be executed   
             (update expression) Increment / decrement statement  
@@ -49,12 +55,12 @@ Example:
 
 ----------------------------------------------------------------------------
 
-Do While: The Java do-while loop is used to iterate a part of the program repeatedly, until the specified condition is true. 
+DO WHILE: The Java do-while loop is used to iterate a part of the program repeatedly, until the specified condition is true. 
           If the number of iteration is not fixed and you must have to execute the loop at least once, it is recommended to use a do-while loop.
           Java do-while loop is called an exit control loop. Therefore, unlike while loop and for loop, the do-while check the condition at the end of loop body.
           The Java do-while loop is executed at least once because condition is checked after loop body.
 
-Example:
+EXAMPLE:
         do{    
             //code to be executed  
             //update statement   
@@ -65,30 +71,3 @@ Example:
         Update expression: Every time the loop body is executed, this expression increments or decrements loop variable.
 ----------------------------------------------------------------------------
 
-Parsing values from String
-
-Example:
-        String s="100";
-        // String s="100a"; generates error when we try to parse into integer.
-        Integer.parseInt(s);
-        // Double.parseDouble(s); Long.parseLong(s); 
-
-----------------------------------------------------------------------------
-
-Reading User input: We need to create an instance of scanner to get input from user.
-
-Example:
-        Scanner sc = new Scanner(System.in);
-        String name=sc.nextLine();
-        int age=sc.nextInt();
-        boolean isAnInt=sc.hasNextInt();
-        // we can use hasNextInt function to check if user has entered an int value.
-        /*
-                if(isAnInt)
-                        int n=sc.nextInt();
-                else
-                        System.out.println("Invalid value");
-        */
-        sc.close();
-        
-----------------------------------------------------------------------------

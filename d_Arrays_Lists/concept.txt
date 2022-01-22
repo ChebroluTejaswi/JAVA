@@ -1,9 +1,12 @@
 ARRAY:  An array is a collection of similar type of elements which has contiguous memory location.
-        
+        To use array in program, we must declare a variable to reference the array and also specify the type of array the variable can refer.
     FEATURES- 
             1. 0 Indexed.
             2. All elements of array should have same data type.
             3. Default values of numeric array elements are set to zero.
+            4. Fixed size.
+            5. Clone of 1D array: deep copy(it will copy actual values - both array's will have different address) (eg: int crr[]=arr.clone())
+            6. Clone of 2D array: shallow copy(it copies the references - both array's will have same address)
 
     EXAMPLE-
             int [] arr=new int[10]; //initialization-1 way

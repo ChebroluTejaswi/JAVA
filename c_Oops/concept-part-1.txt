@@ -19,10 +19,13 @@ Example:
         - OBJECT creation
             car r = new car();
 
+We can instantiate objects in 3 ways: Constructors, Calling methods, Using reference variable
+
 ----------------------------------------------------------------------------
 
 CONSTRUCTORS: A constructor in Java is a special method that is used to initialize objects. 
               The constructor is called when an object of a class is created. 
+              JAVA compiler creates a default constructor(No - Arg constructor) if a class does not have any.
               1) No-Args Constructors     2) Parameterizied Constructors
 
             - Constructors must have the same name as the class within which it is defined.
@@ -36,6 +39,9 @@ CONSTRUCTORS: A constructor in Java is a special method that is used to initiali
                 int wheels;
                 public void car(int wheels){ this.wheels=wheels;}
             }
+There is no direct Copy constructor in Java, however we can achieve it in other forms.
+In class hierarchy, constructors are called in order of derivation from super class to subclass.
+Blank final variable can be initialized only inside constructor. Static balnk final can be initialized only inside static block.
 
 ----------------------------------------------------------------------------
 
@@ -87,8 +93,9 @@ THIS vs SUPER
 METHOD OVERLOADING VS METHOD OVERRIDING
 
     Method Overloading: (Compile-time polymorphism) 
-                        Providing two or more separate methods in a class with same name but diff parameters.
-                        Return type, Access modifiers may or may not be same and can Throw different checked/ unchecked exceptions.
+                        Providing two or more separate methods in a class with same name but diff parameters(diff number of parameters or parameters with data types).
+                        Method overloading is not possible by changing the return type of method only.
+                        (Return type, Access modifiers may or may not be same and can Throw different checked/ unchecked exceptions.)
 
     Method Overriding: (Run-time / Dynamic polymorphism)
                         Defines a method in child class that already exists in parent class with same name and arguments.
@@ -122,6 +129,7 @@ STATIC VS INSTANCE METHODS
                             System.out.println(dog.name);
                         }
                     }
+            ORDER: static class > static variable > static block > static method
 
     Instance Method: Belong to an instance of a class.
                      To use an instance method we have to instantiate the class first usually by using new keyword.
